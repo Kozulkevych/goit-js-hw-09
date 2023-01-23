@@ -25,9 +25,10 @@ function onReject({ position, delay }) {
 
 form.addEventListener('submit', (e) => {
 e.preventDefault();
-let firstDelay = Number(e.currentTarget.delay.value);
-const delayStep = Number(e.currentTarget.step.value);
-const amount = Number(e.currentTarget.amount.value);
+const formEl = e.currentTarget;
+let firstDelay = Number(formEl.delay.value);
+const delayStep = Number(formEl.step.value);
+const amount = Number(formEl.amount.value);
 for (let i = 0; i < amount; i += 1) {
   createPromise(i, firstDelay)
    .then(onResolve) 
